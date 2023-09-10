@@ -1,5 +1,6 @@
-import Image from 'next/image';
+import { getStaticProps } from './api/fetchData';
 
-export default function Home() {
+export default async function Home({ props }) {
+  console.log('here props - ', props);
   return <div>Hello world</div>;
 }
