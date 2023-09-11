@@ -14,7 +14,7 @@ export const QUERY = gql`
   }
 `;
 
-export async function getStaticProps() {
+export async function getData() {
   const { posts } = await hygraph.request(QUERY);
   return {
     props: {
