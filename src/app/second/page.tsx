@@ -3,7 +3,7 @@ import { getData } from '../api/fetchData';
 const Test = async () => {
   const data = await getData();
 
-  const posts = data.props.posts;
+  const { posts } = data.props;
 
   return (
     <div>
