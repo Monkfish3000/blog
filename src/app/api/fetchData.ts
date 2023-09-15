@@ -12,6 +12,9 @@ export const QUERY = gql`
     posts {
       id
       title
+      coverImage {
+        url
+      }
     }
   }
 `;
