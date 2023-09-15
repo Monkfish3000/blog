@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <header className="w-full flex items-center justify-between">
+    <header className="w-full flex items-center justify-between z-10">
       <nav className="space-x-7 flex items-center">
         <Link href="/">
           <Image
