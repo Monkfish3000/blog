@@ -1,6 +1,13 @@
 import React from 'react';
 
-const PostCard = ({ title, coverImage, date, excerpt }) => {
+interface PostCardProps {
+  title: string;
+  img: string;
+  date: string;
+  excerpt: string;
+}
+
+const PostCard: React.FC<PostCardProps> = ({ title, img, date, excerpt }) => {
   return (
     <div>
       <h1>{title}</h1>
