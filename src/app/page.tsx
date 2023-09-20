@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { getData } from './api/fetchData';
-import PostCard from './components/PostCard';
+import { Feed } from './components/Feed';
 
 export default async function Home() {
   const data = await getData();
@@ -23,7 +23,7 @@ export default async function Home() {
         </div>
       </header>
       <section>
-        <PostCard />
+        <Feed posts={posts} />
       </section>
     </>
   );
