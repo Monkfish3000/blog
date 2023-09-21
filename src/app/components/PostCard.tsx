@@ -25,18 +25,25 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ title, img, date, excerpt }) => {
   return (
     <CssVarsProvider theme={theme}>
-      <Card variant="outlined" sx={{ width: '100%' }}>
+      <Card className="shadow-2xl" variant="outlined" sx={{ width: '100%' }}>
         <CardOverflow>
           <AspectRatio ratio="2">
-            <Image width={60} height={60} src={img} alt="Blog post image" />
+            <Image
+              layout="fill"
+              objectFit="cover"
+              src={img}
+              alt="Blog post image"
+            />
           </AspectRatio>
         </CardOverflow>
         <CardContent>
-          <Typography level="title-lg">{title}</Typography>
+          <Typography sx={{ height: '60px' }} className="font-normal text-xl">
+            {title}
+          </Typography>
         </CardContent>
         <CardOverflow
           variant="soft"
-          sx={{ height: '120px', overflow: 'hidden', bgcolor: 'black' }}
+          sx={{ overflow: 'hidden', bgcolor: 'black' }}
         >
           <Divider inset="context" />
           <CardContent orientation="horizontal">
@@ -44,8 +51,9 @@ const PostCard: React.FC<PostCardProps> = ({ title, img, date, excerpt }) => {
               sx={{
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
+                height: '50px',
               }}
-              level="body-sm"
+              className="text-xs"
               fontWeight="md"
               textColor="#fff"
             >
