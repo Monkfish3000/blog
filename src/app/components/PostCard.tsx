@@ -10,6 +10,7 @@ import {
   Typography,
   CssVarsProvider,
 } from '@mui/joy';
+import Image from 'next/image';
 
 import formatDate from '@/utils/formateDate';
 import { theme } from '@/app/styles/joyUITheme';
@@ -24,38 +25,35 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ title, img, date, excerpt }) => {
   return (
     <CssVarsProvider theme={theme}>
-      <Card variant="outlined" sx={{ width: 320 }}>
+      <Card variant="outlined" sx={{ width: '100%' }}>
         <CardOverflow>
           <AspectRatio ratio="2">
-            <img
-              src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
-              srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
-              loading="lazy"
-              alt=""
-            />
+            <Image width={60} height={60} src={img} alt="Blog post image" />
           </AspectRatio>
         </CardOverflow>
         <CardContent>
-          <Typography level="title-lg">Yosemite National Park</Typography>
-          <Typography level="body-sm">California</Typography>
+          <Typography level="title-lg">{title}</Typography>
         </CardContent>
-        <CardOverflow variant="soft" sx={{ bgcolor: 'background.level1' }}>
+        <CardOverflow
+          variant="soft"
+          sx={{ height: '120px', overflow: 'hidden', bgcolor: 'black' }}
+        >
           <Divider inset="context" />
           <CardContent orientation="horizontal">
             <Typography
-              level="body-xs"
+              sx={{
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}
+              level="body-sm"
               fontWeight="md"
-              textColor="text.secondary"
+              textColor="#fff"
             >
-              6.3k views
+              {excerpt}
             </Typography>
-            <Divider orientation="vertical" />
-            <Typography
-              level="body-xs"
-              fontWeight="md"
-              textColor="text.secondary"
-            >
-              1 hour ago
+            <Divider orientation="vertical" sx={{ bgcolor: '#fff' }} />
+            <Typography level="body-xs" fontWeight="md" textColor="#fff">
+              {formatDate(date)}
             </Typography>
           </CardContent>
         </CardOverflow>
