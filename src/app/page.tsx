@@ -22,7 +22,7 @@ export default async function Home() {
           <h1 className="text-3xl font-extrabold">{posts[0].title}</h1>
         </div>
       </header>
-      <section>
+      <section className="m-auto w-4/5">
         <Feed posts={posts} />
       </section>
     </>

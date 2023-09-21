@@ -18,7 +18,7 @@ interface FeedProps {
 
 export const Feed: React.FC<FeedProps> = ({ posts }) => {
   return (
-    <div>
+    <div className="flex mt-8 space-x-1">
       {posts.map(({ id, title, coverImage, excerpt, date }) => (
         <PostCard
           key={id}
