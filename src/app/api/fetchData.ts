@@ -14,6 +14,7 @@ export const QUERY = gql`
       date
       title
       excerpt
+      slug
       content {
         html
       }
