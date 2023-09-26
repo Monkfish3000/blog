@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { getData } from './api/fetchData';
+import { getPosts } from './api/fetchData';
 import { Feed } from './components/Feed';
 
 export default async function Home() {
-  const data = await getData();
+  const data = await getPosts();
 
-  const { posts } = data.props;
+  const { posts } = data;
   const coverImage = posts[0].coverImage.url;
 
   return (
