@@ -1,9 +1,20 @@
 import { getData } from '@/app/api/fetchData';
 
-export default async function Post() {
-  const data = await getData();
+const data = await getData();
 
-  const { posts } = data.props;
+const { posts } = data.props;
 
-  return <h1>Posts</h1>;
+export async function generateStaticParams() {
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+const getPostData = (slug: string) => {
+  return posts.find((post) => post.slug === slug);
+};
+
+export default async function Post({ params }) {
+  const postData = getPostData(params.slug);
+  return <h1>THIS IS WORKING: {postData?.title}</h1>;
 }

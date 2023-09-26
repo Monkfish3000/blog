@@ -18,6 +18,7 @@ interface Post {
   date: string;
   title: string;
   excerpt: string;
+  slug: string;
   content: Content;
   author: Author;
   coverImage: CoverImage;
