@@ -38,7 +38,7 @@ export const getPosts = async () => {
   return data;
 };
 
-export const getPost = async (params) => {
+export const getPost = async (params: string) => {
   const response = await fetch(
     'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clmc3vguo145t01uigbt1hu3j/master',
     {

@@ -1,6 +1,12 @@
 import { getPost } from '@/app/api/fetchData';
 
-export default async function Post({ params }) {
+interface PostParams {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function Post({ params }: PostParams) {
   const data = await getPost(params.slug);
 
   const { posts } = data;
