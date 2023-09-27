@@ -1,11 +1,11 @@
 import { getPost } from '@/app/api/fetchData';
 
 export default async function Post({ params }) {
-  const post = await getPost(params.slug);
+  const data = await getPost(params.slug);
 
-  const { posts } = post;
+  const { posts } = data;
+  const post = posts[0];
+  const { id, date, title, content, coverImage } = post;
 
-  const _post = posts[0];
-
-  return <h1>THIS IS WORKING: {_post.title}</h1>;
+  return <h1>{title}</h1>;
 }
