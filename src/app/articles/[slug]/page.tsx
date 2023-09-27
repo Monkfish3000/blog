@@ -11,5 +11,9 @@ export default async function Post({ params }: PostParams) {
 
   const { id, date, title, content, coverImage } = post[0];
 
-  return <h1>{title}</h1>;
+  return (
+    <article>
+      <h1>{title}</h1>
+    </article>
+  );
 }
