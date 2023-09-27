@@ -7,11 +7,9 @@ interface PostParams {
 }
 
 export default async function Post({ params }: PostParams) {
-  const data = await getPost(params.slug);
+  const post = await getPost(params.slug);
 
-  const { posts } = data;
-  const post = posts[0];
-  const { id, date, title, content, coverImage } = post;
+  const { id, date, title, content, coverImage } = post[0];
 
   return <h1>{title}</h1>;
 }

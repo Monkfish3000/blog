@@ -78,5 +78,5 @@ export const getPost = async (params: string) => {
 
   const { data } = await response.json();
 
-  return data;
+  return data.posts;
 };
