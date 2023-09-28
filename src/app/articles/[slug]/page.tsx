@@ -14,7 +14,7 @@ export default async function Post({ params }: PostParams) {
   const { id, date, title, content, coverImage } = post[0];
 
   return (
-    <header className="relative w-full h-[80vh]">
+    <header className="relative w-full h-[80vh] flex justify-center items-center">
       <Image
         className="object-cover w-full h-full scale-[1.07]"
         src={coverImage.url}
@@ -22,8 +22,8 @@ export default async function Post({ params }: PostParams) {
         layout="fill"
         objectFit="cover"
       />
-      <div className="absolute bottom-0 left-0 right-0 p-5 bg-white text-center mx-auto w-[75%]">
-        <h1 className="text-3xl font-extrabold">{title}</h1>
+      <div className="bg-white text-center z-10 p-4 w-[75%]">
+        <h1 className="text-2xl font-extrabold">{title}</h1>
       </div>
     </header>
   );
