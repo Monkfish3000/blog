@@ -7,21 +7,25 @@ export default async function Home() {
   const data = await getPosts();
 
   const { posts } = data;
-  const coverImage = posts[0].coverImage.url;
+  const {
+    coverImage: { url: imgUrl },
+    title,
+    slug,
+  } = posts[0];
 
   return (
     <>
       <header className="relative w-full h-[80vh]">
         <Image
           className="object-cover w-full h-full"
-          src={coverImage}
+          src={imgUrl}
           alt="Hero Image"
           layout="fill"
           objectFit="cover"
         />
         <div className="absolute bottom-0 left-0 right-0 p-5 bg-white text-center mx-auto w-[50%]">
-          <Link href={`/articles/${posts[0].slug}`}>
-            <h1 className="text-3xl font-extrabold">{posts[0].title}</h1>
+          <Link href={`/articles/${slug}`}>
+            <h1 className="text-3xl font-extrabold">{title}</h1>
           </Link>
         </div>
       </header>
