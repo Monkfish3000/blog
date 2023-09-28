@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { getPosts } from './api/fetchData';
 import { Feed } from './components/Feed';
+import Link from 'next/link';
 
 export default async function Home() {
   const data = await getPosts();
@@ -19,7 +20,9 @@ export default async function Home() {
           objectFit="cover"
         />
         <div className="absolute bottom-0 left-0 right-0 p-5 bg-white text-center mx-auto w-[50%]">
-          <h1 className="text-3xl font-extrabold">{posts[0].title}</h1>
+          <Link href={`/articles/${posts[0].slug}`}>
+            <h1 className="text-3xl font-extrabold">{posts[0].title}</h1>
+          </Link>
         </div>
       </header>
       <section className="m-auto w-4/5">
