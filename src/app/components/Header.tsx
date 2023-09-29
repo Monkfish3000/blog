@@ -15,24 +15,24 @@ const Header = () => {
           />
         </Link>
 
-        <Link className="font-bold text-xl" href="/">
+        <Link className="font-bold text-lg" href="/">
           Articles
         </Link>
-        <Link className="font-bold text-xl" href="/">
+        <Link className="font-bold text-lg" href="/">
           Collections
         </Link>
-        <Link className="font-bold text-xl" href="/">
+        <Link className="font-bold text-lg" href="/">
           About
         </Link>
       </nav>
       <nav className="space-x-7 flex items-center m-7">
-        <Link className="font-light text-xl" href="/">
+        <Link className="font-light text-lg" href="/">
           Manifesto
         </Link>
-        <Link className="font-light text-xl" href="/">
+        <Link className="font-light text-lg" href="/">
           Membership
         </Link>
-        <Link className="font-light text-xl" href="/">
+        <Link className="font-light text-lg" href="/">
           Sign in
         </Link>
 
