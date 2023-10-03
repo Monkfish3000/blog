@@ -12,7 +12,7 @@ interface PostParams {
 export default async function Post({ params }: PostParams) {
   const post = await getPost(params.slug);
 
-  const { id, date, title, content, coverImage } = post[0];
+  const { id, date, title, content, coverImage, author } = post[0];
 
   return (
     <>
@@ -28,7 +28,13 @@ export default async function Post({ params }: PostParams) {
           <h1 className="text-2xl font-extrabold">{title}</h1>
         </div>
       </header>
-      <Article id={id} date={date} content={content} title={title} />
+      <Article
+        id={id}
+        date={date}
+        content={content}
+        title={title}
+        author={author}
+      />
     </>
   );
 }

@@ -9,4 +9,9 @@
   font-weight: 400;
 }
 
+article p {
+  padding-bottom: 1.5rem;
+  line-height: 2;
+}
+
 /* hover font color #5494D4 */
