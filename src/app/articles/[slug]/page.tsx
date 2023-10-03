@@ -28,7 +28,7 @@ export default async function Post({ params }: PostParams) {
           <h1 className="text-2xl font-extrabold">{title}</h1>
         </div>
       </header>
-      <Article id={id} data={date} content={content} />
+      <Article id={id} date={date} content={content} title={title} />
     </>
   );
 }
