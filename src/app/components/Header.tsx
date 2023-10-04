@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Header = () => {
   return (
@@ -26,16 +27,20 @@ const Header = () => {
         </Link>
       </nav>
       <nav className="space-x-7 flex items-center m-7">
-        <Link className="font-light text-lg" href="/">
-          Manifesto
+        <Link
+          className="font-light text-lg"
+          href="https://github.com/Monkfish3000"
+          target="blank"
+        >
+          <FaGithub size={40} />
         </Link>
-        <Link className="font-light text-lg" href="/">
-          Membership
+        <Link
+          className="font-light text-lg"
+          href="https://www.linkedin.com/in/michael-sut/"
+          target="blank"
+        >
+          <FaLinkedin size={40} />
         </Link>
-        <Link className="font-light text-lg" href="/">
-          Sign in
-        </Link>
-
         <Image
           src="assets/icons/search.svg"
           alt="logo"
