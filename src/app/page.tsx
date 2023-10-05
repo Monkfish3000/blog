@@ -25,7 +25,9 @@ export default async function Home() {
         />
         <div className="absolute bottom-0 left-0 right-0 p-5 bg-white text-center mx-auto w-[50%]">
           <Link href={`/articles/${slug}`}>
-            <h1 className="text-3xl font-extrabold">{title}</h1>
+            <h1 className="text-3xl font-extrabold hover:text-customBlue">
+              {title}
+            </h1>
           </Link>
         </div>
       </header>

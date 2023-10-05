@@ -37,7 +37,10 @@ const PostCard: React.FC<PostCardProps> = ({ title, img, date, excerpt }) => {
           </AspectRatio>
         </CardOverflow>
         <CardContent>
-          <Typography sx={{ height: '60px' }} className="font-normal text-xl">
+          <Typography
+            sx={{ height: '60px' }}
+            className="font-normal text-xl hover:text-customBlue"
+          >
             {title}
           </Typography>
         </CardContent>
