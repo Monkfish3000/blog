@@ -1,6 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 
 const ThemeBtn = () => {
   const { resolvedTheme, setTheme } = useTheme();
@@ -8,7 +9,11 @@ const ThemeBtn = () => {
     <button
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
-      {resolvedTheme === 'dark' ? 'GO-LIGHT' : 'GO-DARK'}
+      {resolvedTheme === 'dark' ? (
+        <SunIcon className="h-6 w-6 text-yellow-600" />
+      ) : (
+        <MoonIcon className="h-6 w-6 text-slate-800" />
+      )}
     </button>
   );
 };
