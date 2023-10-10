@@ -16,7 +16,7 @@ const Header = () => {
       <nav className="space-x-7 flex items-center">
         <Link href="/">
           <Image
-            src="assets/images/logo.svg"
+            src="assets/images/logoWhite.svg"
             alt="logo"
             width={120}
             height={120}
