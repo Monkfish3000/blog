@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import ThemeBtn from './ThemeBtn';
 
 const Header = () => {
   return (
@@ -27,6 +28,7 @@ const Header = () => {
         </Link>
       </nav>
       <nav className="space-x-7 flex items-center m-7">
+        <ThemeBtn />
         <Link
           className="font-light text-lg"
           href="https://github.com/Monkfish3000"
