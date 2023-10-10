@@ -5,14 +5,15 @@ import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 
 const ThemeBtn = () => {
   const { resolvedTheme, setTheme } = useTheme();
+
   return (
     <button
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {resolvedTheme === 'dark' ? (
-        <SunIcon className="h-6 w-6 text-yellow-600" />
+        <SunIcon className="h-8 w-8 text-yellow-600" />
       ) : (
-        <MoonIcon className="h-6 w-6 text-slate-800" />
+        <MoonIcon className="h-8 w-8 text-slate-800" />
       )}
     </button>
   );

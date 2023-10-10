@@ -1,9 +1,16 @@
+'use client';
+
+import { useTheme } from 'next-themes';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ThemeBtn from './ThemeBtn';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 const Header = () => {
+  const { resolvedTheme } = useTheme();
+
   return (
     <header className="w-full flex items-center justify-between z-10">
       <nav className="space-x-7 flex items-center">
@@ -43,14 +50,22 @@ const Header = () => {
         >
           <FaLinkedin size={40} />
         </Link>
-        <Image
+        {
+          <MagnifyingGlassIcon
+            className={`h-10 w-10 ${
+              resolvedTheme === 'dark' ? 'text-white' : 'text-black'
+            }`}
+            style={{ cursor: 'pointer' }}
+          />
+        }
+        {/* <Image
           src="assets/icons/search.svg"
           alt="logo"
           width={50}
           height={50}
           className="object-contain"
           style={{ cursor: 'pointer' }}
-        />
+        /> */}
       </nav>
     </header>
   );
