@@ -24,7 +24,7 @@ export default async function Post({ params }: PostParams) {
           layout="fill"
           objectFit="cover"
         />
-        <div className="bg-white text-center z-10 p-4 w-[75%]">
+        <div className="bg-white dark:bg-customBlack text-center z-10 p-4 w-[75%]">
           <h1 className="text-2xl font-extrabold">{title}</h1>
         </div>
       </header>
