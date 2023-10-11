@@ -1,6 +1,24 @@
 import formatDate from '@/utils/formateDate';
 
-const Article = ({ id, date, title, content, author }) => {
+interface ArticleProps {
+  id: number;
+  date: string;
+  title: string;
+  content: {
+    html: string;
+  };
+  author: {
+    name: string;
+  };
+}
+
+const Article: React.FC<ArticleProps> = ({
+  id,
+  date,
+  title,
+  content,
+  author,
+}) => {
   const { html } = content;
   return (
     <article className="m-8 grid grid-cols-4 w-5/6">
