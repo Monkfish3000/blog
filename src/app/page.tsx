@@ -23,7 +23,7 @@ export default async function Home() {
           layout="fill"
           objectFit="cover"
         />
-        <div className="absolute bottom-0 left-0 right-0 p-5 bg-white dark:bg-black text-center mx-auto w-[50%]">
+        <div className="absolute bottom-0 left-0 right-0 p-5 bg-white dark:bg-customBlack text-center mx-auto w-[50%]">
           <Link href={`/articles/${slug}`}>
             <h1 className="text-3xl font-extrabold hover:text-customBlue">
               {title}
