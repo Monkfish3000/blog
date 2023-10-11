@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         customBlue: '#5494D4',
+        customBlack: '#121212',
       },
     },
   },
