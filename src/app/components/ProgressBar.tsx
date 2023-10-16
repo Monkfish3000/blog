@@ -8,37 +8,46 @@ const ProgressBar = () => {
 
   const progressBarRef = useRef(null);
   useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.body.clientHeight;
-      const scrollTop = window.scrollY;
-      const fullScrollHeight = documentHeight - windowHeight;
+    let rafId;
 
-      const progress = (scrollTop / fullScrollHeight) * 100;
-      setScrollProgress(Math.floor(progress));
+    const handleScroll = () => {
+      cancelAnimationFrame(rafId);
+
+      rafId = requestAnimationFrame(() => {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.body.clientHeight;
+        const scrollTop = window.scrollY;
+        const fullScrollHeight = documentHeight - windowHeight;
+
+        const progress = (scrollTop / fullScrollHeight) * 100;
+        setScrollProgress(Math.floor(progress));
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 
   useEffect(() => {
-    console.log(scrollProgress);
-    if (scrollProgress > 29) setReadingArticle(true);
+    if (scrollProgress > 33) setReadingArticle(true);
     if (scrollProgress < 29) setReadingArticle(false);
+    console.log(scrollProgress);
   }, [scrollProgress]);
 
   if (!readingArticle) return <></>;
 
   return (
-    <span
-      ref={progressBarRef}
-      style={{ transform: `translateX(${50 - 100}%)` }}
-      className="bg-customBlue h-1 w-full fixed top-0"
-    />
+    <div className="fixed top-0 left-0 w-full">
+      <div
+        ref={progressBarRef}
+        className="bg-customBlue h-1"
+        style={{ transform: `translateX(-95%)` }}
+      />
+    </div>
   );
 };
 
