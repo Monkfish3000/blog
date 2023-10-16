@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import { getPost } from '@/app/api/fetchData';
 import Article from '@/app/components/Article';
+import ProgressBar from '@/app/components/ProgressBar';
 
 interface PostParams {
   params: {
@@ -28,6 +29,7 @@ export default async function Post({ params }: PostParams) {
           <h1 className="text-2xl font-extrabold">{title}</h1>
         </div>
       </header>
+      <ProgressBar />
       <Article
         id={id}
         date={date}

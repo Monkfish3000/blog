@@ -1,0 +1,54 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+
+const ProgressBar = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [readingArticle, setReadingArticle] = useState(false);
+
+  const progressBarRef = useRef(null);
+  useEffect(() => {
+    let rafId;
+
+    const handleScroll = () => {
+      cancelAnimationFrame(rafId);
+
+      rafId = requestAnimationFrame(() => {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.body.clientHeight;
+        const scrollTop = window.scrollY;
+        const fullScrollHeight = documentHeight - windowHeight;
+
+        const progress = (scrollTop / fullScrollHeight) * 100;
+        setScrollProgress(Math.floor(progress));
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollProgress > 33) setReadingArticle(true);
+    if (scrollProgress < 29) setReadingArticle(false);
+    console.log(scrollProgress);
+  }, [scrollProgress]);
+
+  if (!readingArticle) return <></>;
+
+  return (
+    <div className="fixed top-0 left-0 w-full">
+      <div
+        ref={progressBarRef}
+        className="bg-customBlue h-1"
+        style={{ transform: `translateX(-95%)` }}
+      />
+    </div>
+  );
+};
+
+export default ProgressBar;
