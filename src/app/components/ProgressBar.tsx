@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 
 const ProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [readingArticle, setReadingArticle] = useState(false);
+
   const progressBarRef = useRef(null);
   useEffect(() => {
     const handleScroll = () => {
@@ -25,13 +27,17 @@ const ProgressBar = () => {
 
   useEffect(() => {
     console.log(scrollProgress);
+    if (scrollProgress > 29) setReadingArticle(true);
+    if (scrollProgress < 29) setReadingArticle(false);
   }, [scrollProgress]);
+
+  if (!readingArticle) return <></>;
 
   return (
     <span
       ref={progressBarRef}
       style={{ transform: `translateX(${50 - 100}%)` }}
-      className="bg-customBlue h-1 w-full absolute bottom-0"
+      className="bg-customBlue h-1 w-full fixed top-0"
     />
   );
 };
