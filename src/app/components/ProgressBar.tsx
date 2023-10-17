@@ -8,7 +8,7 @@ const ProgressBar = () => {
 
   const progressBarRef = useRef(null);
   useEffect(() => {
-    let rafId;
+    let rafId: number;
 
     const handleScroll = () => {
       cancelAnimationFrame(rafId);
