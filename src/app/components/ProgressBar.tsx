@@ -33,9 +33,11 @@ const ProgressBar = () => {
   }, []);
 
   useEffect(() => {
-    if (scrollProgress > 33) setReadingArticle(true);
+    if (scrollProgress > 30) {
+      setReadingArticle(true);
+      console.log(scrollProgress);
+    }
     if (scrollProgress < 29) setReadingArticle(false);
-    console.log(scrollProgress);
   }, [scrollProgress]);
 
   if (!readingArticle) return <></>;
@@ -45,7 +47,7 @@ const ProgressBar = () => {
       <div
         ref={progressBarRef}
         className="bg-customBlue h-1"
-        style={{ transform: `translateX(-95%)` }}
+        style={{ transform: `translateX(${-100 + scrollProgress}%)` }}
       />
     </div>
   );
