@@ -14,7 +14,7 @@ interface PostParams {
 export default async function Post({ params }: PostParams) {
   const post = await getPost(params.slug);
 
-  const { id, date, title, content, coverImage, author } = post[0];
+  const { id, date, title, content, coverImage, author, excerpt } = post[0];
 
   return (
     <>
@@ -28,7 +28,7 @@ export default async function Post({ params }: PostParams) {
           objectFit="cover"
         />
         <div className="bg-white dark:bg-customBlack text-center z-10 p-4 w-[75%]">
-          <h1 className="text-2xl font-extrabold">{title}</h1>
+          <h1 className=" text-xl ">{excerpt}</h1>
         </div>
       </header>
       <ProgressBar />

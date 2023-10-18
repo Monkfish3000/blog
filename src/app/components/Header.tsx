@@ -42,26 +42,33 @@ const Header = ({ title }) => {
           </>
         ) : (
           <>
-            <h1>{title}</h1>
+            <h1 className="text-2xl font-extrabold">{title}</h1>
           </>
         )}
       </nav>
       <nav className="space-x-7 flex items-center m-7">
-        <ThemeBtn />
-        <Link
-          className="font-light text-lg"
-          href="https://github.com/Monkfish3000"
-          target="blank"
-        >
-          <FaGithub size={40} />
-        </Link>
-        <Link
-          className="font-light text-lg"
-          href="https://www.linkedin.com/in/michael-sut/"
-          target="blank"
-        >
-          <FaLinkedin size={40} />
-        </Link>
+        {title ? (
+          <ThemeBtn />
+        ) : (
+          <>
+            <ThemeBtn />
+            <Link
+              className="font-light text-lg"
+              href="https://github.com/Monkfish3000"
+              target="blank"
+            >
+              <FaGithub size={40} />
+            </Link>
+            <Link
+              className="font-light text-lg"
+              href="https://www.linkedin.com/in/michael-sut/"
+              target="blank"
+            >
+              <FaLinkedin size={40} />
+            </Link>
+          </>
+        )}
+
         {
           <MagnifyingGlassIcon
             className={`h-10 w-10 ${
