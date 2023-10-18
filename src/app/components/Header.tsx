@@ -8,8 +8,10 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ThemeBtn from './ThemeBtn';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
-const Header = () => {
+const Header = ({ title }) => {
   const { resolvedTheme } = useTheme();
+
+  console.log(title);
 
   return (
     <header className="w-full flex items-center justify-between z-10">
@@ -26,32 +28,47 @@ const Header = () => {
           />
         </Link>
 
-        <Link className="font-bold text-lg" href="/">
-          Articles
-        </Link>
-        <Link className="font-bold text-lg" href="/">
-          Collections
-        </Link>
-        <Link className="font-bold text-lg" href="/">
-          About
-        </Link>
+        {!title ? (
+          <>
+            <Link className="font-bold text-lg" href="/">
+              Articles
+            </Link>
+            <Link className="font-bold text-lg" href="/">
+              Collections
+            </Link>
+            <Link className="font-bold text-lg" href="/">
+              About
+            </Link>
+          </>
+        ) : (
+          <>
+            <h1 className="text-2xl font-extrabold">{title}</h1>
+          </>
+        )}
       </nav>
       <nav className="space-x-7 flex items-center m-7">
-        <ThemeBtn />
-        <Link
-          className="font-light text-lg"
-          href="https://github.com/Monkfish3000"
-          target="blank"
-        >
-          <FaGithub size={40} />
-        </Link>
-        <Link
-          className="font-light text-lg"
-          href="https://www.linkedin.com/in/michael-sut/"
-          target="blank"
-        >
-          <FaLinkedin size={40} />
-        </Link>
+        {title ? (
+          <ThemeBtn />
+        ) : (
+          <>
+            <ThemeBtn />
+            <Link
+              className="font-light text-lg"
+              href="https://github.com/Monkfish3000"
+              target="blank"
+            >
+              <FaGithub size={40} />
+            </Link>
+            <Link
+              className="font-light text-lg"
+              href="https://www.linkedin.com/in/michael-sut/"
+              target="blank"
+            >
+              <FaLinkedin size={40} />
+            </Link>
+          </>
+        )}
+
         {
           <MagnifyingGlassIcon
             className={`h-10 w-10 ${
