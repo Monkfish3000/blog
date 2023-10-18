@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { getPost } from '@/app/api/fetchData';
 import Article from '@/app/components/Article';
 import ProgressBar from '@/app/components/ProgressBar';
+import Header from '@/app/components/Header';
 
 interface PostParams {
   params: {
@@ -17,6 +18,7 @@ export default async function Post({ params }: PostParams) {
 
   return (
     <>
+      <Header title={title} />
       <header className="relative w-full h-[80vh] flex justify-center items-center">
         <Image
           className="object-cover w-full h-full scale-[1.07]"

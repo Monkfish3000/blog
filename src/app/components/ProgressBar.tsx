@@ -35,7 +35,6 @@ const ProgressBar = () => {
   useEffect(() => {
     if (scrollProgress > 30) {
       setReadingArticle(true);
-      console.log(scrollProgress);
     }
     if (scrollProgress < 29) setReadingArticle(false);
   }, [scrollProgress]);
