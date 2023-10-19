@@ -14,4 +14,8 @@ article p {
   line-height: 2;
 }
 
+::selection {
+  background-color: #f2ff49;
+}
+
 /* hover font color #5494D4 */
