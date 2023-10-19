@@ -8,10 +8,12 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ThemeBtn from './ThemeBtn';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
-const Header = ({ title }) => {
-  const { resolvedTheme } = useTheme();
+type title = {
+  title: string;
+};
 
-  console.log(title);
+const Header = ({ title }: title) => {
+  const { resolvedTheme } = useTheme();
 
   return (
     <header className="w-full flex items-center justify-between z-10">
@@ -30,13 +32,13 @@ const Header = ({ title }) => {
 
         {!title ? (
           <>
-            <Link className="font-bold text-lg" href="/">
+            <Link className="headerLink" href="/">
               Articles
             </Link>
-            <Link className="font-bold text-lg" href="/">
+            <Link className="headerLink" href="/">
               Collections
             </Link>
-            <Link className="font-bold text-lg" href="/">
+            <Link className="headerLink" href="/">
               About
             </Link>
           </>
@@ -53,14 +55,14 @@ const Header = ({ title }) => {
           <>
             <ThemeBtn />
             <Link
-              className="font-light text-lg"
+              className="font-light text-lg hover:text-customBlue"
               href="https://github.com/Monkfish3000"
               target="blank"
             >
               <FaGithub size={40} />
             </Link>
             <Link
-              className="font-light text-lg"
+              className="font-light text-lg hover:text-customBlue"
               href="https://www.linkedin.com/in/michael-sut/"
               target="blank"
             >
@@ -71,7 +73,7 @@ const Header = ({ title }) => {
 
         {
           <MagnifyingGlassIcon
-            className={`h-10 w-10 ${
+            className={`h-10 w-10 hover:text-customBlue ${
               resolvedTheme === 'dark' ? 'text-white' : 'text-black'
             }`}
             style={{ cursor: 'pointer' }}

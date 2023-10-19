@@ -18,4 +18,8 @@ article p {
   background-color: #f2ff49;
 }
 
+.headerLink {
+  @apply font-bold text-lg hover:text-customBlue;
+}
+
 /* hover font color #5494D4 */
