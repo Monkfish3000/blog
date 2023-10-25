@@ -18,18 +18,15 @@ const Header = ({ title }: title) => {
   return (
     <header className="w-full flex items-center justify-between z-10">
       <nav className="space-x-7 flex items-center">
-        <Link href="/">
-          <Image
-            src={`/assets/images/logo${
-              resolvedTheme === 'dark' ? 'White' : 'Black'
-            }.png`}
-            alt="logo"
-            width={120}
-            height={120}
-            className="object-contain"
-          />
-        </Link>
-
+        <Image
+          src={`/assets/images/logo${
+            resolvedTheme === 'dark' ? 'White' : 'Black'
+          }.png`}
+          alt="logo"
+          width={120}
+          height={120}
+          className="object-contain"
+        />
         {!title ? (
           <>
             <Link className="headerLink" href="/">
