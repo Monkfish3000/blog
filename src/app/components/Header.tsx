@@ -28,10 +28,7 @@ const Header = ({ title }: title) => {
           width={120}
           height={120}
           className="object-contain cursor-pointer"
-          onClick={() => {
-            setSideBarIsOpen(!sideBarIsOpen);
-            console.log(sideBarIsOpen);
-          }}
+          onClick={() => setSideBarIsOpen(!sideBarIsOpen)}
         />
         {!title ? (
           <>
