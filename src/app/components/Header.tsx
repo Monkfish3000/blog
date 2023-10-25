@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ThemeBtn from './ThemeBtn';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+import { useState } from 'react';
 
 type title = {
   title: string;
@@ -14,6 +15,7 @@ type title = {
 
 const Header = ({ title }: title) => {
   const { resolvedTheme } = useTheme();
+  const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
 
   return (
     <header className="w-full flex items-center justify-between z-10">
@@ -25,7 +27,11 @@ const Header = ({ title }: title) => {
           alt="logo"
           width={120}
           height={120}
-          className="object-contain"
+          className="object-contain cursor-pointer"
+          onClick={() => {
+            setSideBarIsOpen(!sideBarIsOpen);
+            console.log(sideBarIsOpen);
+          }}
         />
         {!title ? (
           <>
