@@ -93,7 +93,7 @@ const Header = ({ title }: title) => {
         </nav>
       </header>
       {sideBarIsOpen && (
-        <nav className="fixed top-0 left-0 h-full w-1/3 bg-white z-50 border-r border-gray-400">
+        <nav className="fixed top-0 left-0 h-full w-1/3 bg-white z-50 border-r border-gray-300">
           <Sidebar toggleSidebar={setSideBarIsOpen} />
         </nav>
       )}
