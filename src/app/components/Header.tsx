@@ -93,9 +93,9 @@ const Header = ({ title }: title) => {
         </nav>
       </header>
       {sideBarIsOpen && (
-        <section>
-          <Sidebar />
-        </section>
+        <nav className="fixed top-0 left-0 h-full w-1/3 bg-white z-50 border-r border-gray-400">
+          <Sidebar toggleSidebar={setSideBarIsOpen} />
+        </nav>
       )}
     </>
   );

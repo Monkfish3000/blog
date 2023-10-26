@@ -1,15 +1,16 @@
-import React from 'react';
+'use client';
 
-const Sidebar = () => {
+const Sidebar = ({ toggleSidebar }) => {
   return (
-    <div>
+    <>
+      <button onClick={() => toggleSidebar(false)}>X</button>
       <ul>
         <li>Home</li>
         <li>Articles</li>
         <li>Collections</li>
         <li>About</li>
       </ul>
-    </div>
+    </>
   );
 };
 
