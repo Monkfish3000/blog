@@ -2,7 +2,11 @@
 
 import { AiOutlineClose } from 'react-icons/ai';
 
-const Sidebar = ({ toggleSidebar }) => {
+type ToggleSidebarProps = {
+  toggleSidebar: Function;
+};
+
+const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
   return (
     <>
       <button onClick={() => toggleSidebar(false)}>
