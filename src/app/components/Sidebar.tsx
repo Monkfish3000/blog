@@ -13,11 +13,19 @@ const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
       <button onClick={() => toggleSidebar(false)}>
         <AiOutlineClose className="m-7" color="#4c4949" size={40} />
       </button>
-      <ul>
-        <Link href="/">Home</Link>
-        <li>Articles</li>
-        <li>Collections</li>
-        <li>About</li>
+      <ul className="text-center space-y-6">
+        <Link className="sidebarLink" href="/">
+          Home
+        </Link>
+        <Link className="sidebarLink" href="/">
+          Articles
+        </Link>
+        <Link className="sidebarLink" href="/">
+          Collections
+        </Link>
+        <Link className="sidebarLink" href="/">
+          About
+        </Link>
       </ul>
     </>
   );
