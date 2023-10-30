@@ -22,4 +22,8 @@ article p {
   @apply font-bold text-lg hover:text-customBlue;
 }
 
+.sidebarLink {
+  @apply font-bold text-2xl cursor-pointer rounded-md hover:bg-gray-100;
+}
+
 /* hover font color #5494D4 */
