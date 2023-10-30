@@ -30,8 +30,8 @@ const Header = ({ title }: title) => {
             alt="logo"
             width={120}
             height={120}
-            className="object-contain cursor-pointer"
-            onClick={() => setSideBarIsOpen(!sideBarIsOpen)}
+            className={`object-contain ${title ? 'cursor-pointer' : ''}`}
+            onClick={() => title && setSideBarIsOpen(!sideBarIsOpen)}
           />
           {!title ? (
             <>
@@ -94,7 +94,7 @@ const Header = ({ title }: title) => {
       </header>
       {sideBarIsOpen && (
         <nav className="fixed top-0 left-0 h-full w-1/3 bg-white z-50 border-r border-gray-300">
-          <Sidebar toggleSidebar={setSideBarIsOpen} />
+          {title ? <Sidebar toggleSidebar={setSideBarIsOpen} /> : null}
         </nav>
       )}
     </>

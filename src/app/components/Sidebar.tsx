@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { AiOutlineClose } from 'react-icons/ai';
 
 type ToggleSidebarProps = {
@@ -13,7 +14,7 @@ const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
         <AiOutlineClose className="m-7" color="#4c4949" size={40} />
       </button>
       <ul>
-        <li>Home</li>
+        <Link href="/">Home</Link>
         <li>Articles</li>
         <li>Collections</li>
         <li>About</li>
