@@ -23,7 +23,7 @@ article p {
 }
 
 .sidebarLink {
-  @apply font-bold text-2xl cursor-pointer rounded-md hover:bg-gray-100;
+  @apply font-bold text-2xl cursor-pointer rounded-md p-3 hover:bg-gray-100;
 }
 
 /* hover font color #5494D4 */
