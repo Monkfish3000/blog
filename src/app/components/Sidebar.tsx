@@ -13,7 +13,7 @@ const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
       <button onClick={() => toggleSidebar(false)}>
         <AiOutlineClose className="m-7" color="#4c4949" size={40} />
       </button>
-      <ul className="text-center space-y-6">
+      <nav className="flex flex-col rounded-md w-[75%] m-auto text-center space-y-6">
         <Link className="sidebarLink" href="/">
           Home
         </Link>
@@ -26,7 +26,7 @@ const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
         <Link className="sidebarLink" href="/">
           About
         </Link>
-      </ul>
+      </nav>
     </>
   );
 };
