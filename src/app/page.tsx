@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
+      <Header title={''} />
       <header className="relative w-full h-[80vh]">
         <Image
           className="object-cover w-full h-full"
