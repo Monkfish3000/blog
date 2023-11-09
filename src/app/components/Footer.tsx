@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-customBlack text-white">
+    <footer className="w-full bg-customBlack text-white dark:text-customBlack dark:bg-white">
       <p className="p-4">&copy; 2023 Monkfish. All rights reserved.</p>
     </footer>
   );
