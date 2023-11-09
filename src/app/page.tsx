@@ -3,6 +3,7 @@ import { getPosts } from './api/fetchData';
 import { Feed } from './components/Feed';
 import Link from 'next/link';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default async function Home() {
   const data = await getPosts();
@@ -36,6 +37,7 @@ export default async function Home() {
       <section className="m-auto w-4/5">
         <Feed posts={posts} />
       </section>
+      <Footer />
     </>
   );
 }
