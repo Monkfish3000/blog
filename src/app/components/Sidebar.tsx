@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
+
 import { AiOutlineClose } from 'react-icons/ai';
 
 type ToggleSidebarProps = {
@@ -9,6 +11,8 @@ type ToggleSidebarProps = {
 };
 
 const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
+  const { resolvedTheme } = useTheme();
+
   return (
     <>
       <button onClick={() => toggleSidebar(false)}>
@@ -17,8 +21,10 @@ const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
       <nav className="flex flex-col rounded-md w-[75%] m-auto text-center space-y-6">
         <Link href="/">
           <Image
+            src={`/assets/images/logo${
+              resolvedTheme === 'dark' ? 'White' : 'Black'
+            }.png`}
             className="m-auto"
-            src="/assets/images/logoBlack.png"
             alt="logo"
             width={120}
             height={120}
