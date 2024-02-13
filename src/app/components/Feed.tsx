@@ -18,6 +18,8 @@ interface FeedProps {
 }
 
 export const Feed: React.FC<FeedProps> = ({ posts }) => {
+  console.log('in feed ' + posts);
+  console.dir(posts);
   return (
     <div className="flex flex-wrap -mx-2 mt-8">
       {posts.map(({ id, title, coverImage, excerpt, date, slug }) => (
@@ -25,7 +27,7 @@ export const Feed: React.FC<FeedProps> = ({ posts }) => {
           <Link href={`articles/${slug}`}>
             <PostCard
               title={title}
-              img={coverImage.url}
+              img={coverImage?.url}
               excerpt={excerpt}
               date={date}
             />
