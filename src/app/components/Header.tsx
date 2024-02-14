@@ -41,7 +41,7 @@ const Header = ({ title }: title) => {
               <Link className="headerLink" href="/">
                 Collections
               </Link>
-              <Link className="headerLink" href="/">
+              <Link className="headerLink" href="/about">
                 About
               </Link>
             </>
