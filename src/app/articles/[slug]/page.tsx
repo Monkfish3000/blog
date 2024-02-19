@@ -4,6 +4,7 @@ import { getPost } from '@/app/api/fetchData';
 import Article from '@/app/components/Article';
 import ProgressBar from '@/app/components/ProgressBar';
 import Header from '@/app/components/Header';
+import { revalidatePath } from 'next/cache';
 
 interface PostParams {
   params: {
@@ -12,9 +13,18 @@ interface PostParams {
 }
 
 export default async function Post({ params }: PostParams) {
+  revalidatePath('/articles');
   const post = await getPost(params.slug);
 
-  const { id, date, title, content, coverImage, author, excerpt } = post[0];
+  const {
+    id,
+    date,
+    title,
+    content,
+    coverImage: { url: imgUrl },
+    author,
+    excerpt,
+  } = post[0];
 
   return (
     <>
@@ -22,7 +32,7 @@ export default async function Post({ params }: PostParams) {
       <header className="relative w-full h-[80vh] flex justify-center items-center">
         <Image
           className="object-cover w-full h-full scale-[1.07]"
-          src={coverImage.url}
+          src={imgUrl}
           alt="Hero Image"
           layout="fill"
           objectFit="cover"
