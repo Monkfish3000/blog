@@ -1,7 +1,7 @@
 import formatDate from "@/utils/formateDate";
 import DOMPurify from "isomorphic-dompurify";
 
-await import("../styles/custom.css");
+import styles from "../styles/custom.module.css";
 
 interface ArticleProps {
   id: number;
@@ -37,7 +37,7 @@ const Article: React.FC<ArticleProps> = ({
       </section>
 
       <section
-        className="col-span-3 border-l-2 border-customBlue border-opacity-25 mt-6 p-2 rich-text"
+        className={`col-span-3 border-l-2 border-customBlue border-opacity-25 mt-6 p-2 ${styles.richText}`}
         dangerouslySetInnerHTML={{ __html: cleanedHTML }}
       ></section>
     </article>
