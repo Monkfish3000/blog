@@ -1,4 +1,7 @@
-import formatDate from '@/utils/formateDate';
+import formatDate from "@/utils/formateDate";
+import DOMPurify from "isomorphic-dompurify";
+
+await import("../styles/custom.css");
 
 interface ArticleProps {
   id: number;
@@ -20,6 +23,9 @@ const Article: React.FC<ArticleProps> = ({
   author,
 }) => {
   const { html } = content;
+
+  const cleanedHTML = DOMPurify.sanitize(html);
+
   return (
     <article className="m-8 grid grid-cols-4 w-5/6">
       <section className="col-span-1 mt-6 p-2">
@@ -31,8 +37,8 @@ const Article: React.FC<ArticleProps> = ({
       </section>
 
       <section
-        className="col-span-3 border-l-2 border-customBlue border-opacity-25 mt-6 p-2"
-        dangerouslySetInnerHTML={{ __html: html }}
+        className="col-span-3 border-l-2 border-customBlue border-opacity-25 mt-6 p-2 rich-text"
+        dangerouslySetInnerHTML={{ __html: cleanedHTML }}
       ></section>
     </article>
   );
