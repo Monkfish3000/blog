@@ -1,34 +1,34 @@
 /* styles/custom.css */
-.rich-text h1 {
+.richText h1 {
   @apply text-2xl font-bold mb-4;
 }
-.rich-text h2 {
+.richText h2 {
   @apply text-3xl font-bold mb-3;
 }
-.rich-text p {
+.richText p {
   @apply mb-4;
 }
-.rich-text ul {
+.richText ul {
   @apply list-disc pl-5 mb-4;
 }
-.rich-text ol {
+.richText ol {
   @apply list-decimal pl-5 mb-4;
 }
-.rich-text li {
+.richText li {
   @apply mb-2;
 }
-.rich-text a {
+.richText a {
   @apply text-blue-500 underline;
 }
-.rich-text img {
+.richText img {
   @apply mb-4;
 }
 
-.rich-text blockquote {
+.richText blockquote {
   @apply pl-4 border-l-4 border-gray-300 italic text-gray-600 mb-6;
 }
 
-.rich-text code {
+.richText code {
   background-color: #000000;
   color: #00ff00;
   font-family: "Fira Code", monospace;
