@@ -5,6 +5,11 @@
 .richText h2 {
   @apply text-3xl font-bold mb-3;
 }
+
+.richText h4 {
+  @apply text-xl font-bold;
+}
+
 .richText p {
   @apply mb-4;
 }
