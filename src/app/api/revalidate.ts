@@ -13,7 +13,7 @@ export default async function handler(
   try {
     // Revalidate the specific path
     await res.revalidate("/"); // Revalidate the home page
-    // Add more paths if necessary
+    await res.revalidate("/articles");
     return res.json({ revalidated: true });
   } catch (err) {
     return res.status(500).json({ message: "Error revalidating" });
