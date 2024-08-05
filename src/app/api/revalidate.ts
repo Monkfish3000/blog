@@ -11,9 +11,16 @@ export default async function handler(
   }
 
   try {
-    // Revalidate the specific path
-    await res.revalidate("/"); // Revalidate the home page
-    await res.revalidate("/articles");
+    const pathsToRevalidate = ["/", "/articles"];
+
+    // Check if a specific path is provided in the query parameters
+    if (req.query.path) {
+      pathsToRevalidate.push(req.query.path as string);
+    }
+
+    // Revalidate each path
+    await Promise.all(pathsToRevalidate.map((path) => res.revalidate(path)));
+
     return res.json({ revalidated: true });
   } catch (err) {
     return res.status(500).json({ message: "Error revalidating" });
