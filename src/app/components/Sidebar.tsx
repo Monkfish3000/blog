@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
+import Link from "next/link";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose } from "react-icons/ai";
 
 type ToggleSidebarProps = {
   toggleSidebar: Function;
@@ -21,8 +21,9 @@ const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
       <nav className="flex flex-col rounded-md w-[75%] m-auto text-center space-y-6">
         <Link href="/">
           <Image
+            priority
             src={`/assets/images/logo${
-              resolvedTheme === 'dark' ? 'White' : 'Black'
+              resolvedTheme === "dark" ? "White" : "Black"
             }.png`}
             className="m-auto"
             alt="logo"
