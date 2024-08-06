@@ -18,7 +18,7 @@ interface FeedProps {
 }
 
 export const Feed: React.FC<FeedProps> = ({ posts }) => {
-  console.log("Feed -> ", posts.length);
+  // console.log("Feed -> ", posts.length);
 
   return (
     <div className="flex flex-wrap -mx-2 mt-8">
