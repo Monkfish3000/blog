@@ -11,7 +11,7 @@ export default async function handler(
   }
 
   try {
-    const pathsToRevalidate = ["/", "/articles"];
+    const pathsToRevalidate = ["/", "/articles", "/test"];
 
     // Check if a specific path is provided in the query parameters
     if (req.query.path) {
