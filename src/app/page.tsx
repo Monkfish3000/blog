@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 export default async function Home() {
   const data = await getPosts();
 
-  console.log("page -> ", data);
+  // console.log("page -> ", data);
 
   const { posts } = data;
   const {

@@ -13,14 +13,14 @@ export default async function handler(
   try {
     const pathsToRevalidate = ["/", "/articles"];
 
-    console.log("inside revalidate -> ");
+    // console.log("inside revalidate -> ");
 
     // Check if a specific path is provided in the query parameters
     if (req.query.path) {
       pathsToRevalidate.push(req.query.path as string);
     }
 
-    console.log("Revalidating paths:", pathsToRevalidate);
+    // console.log("Revalidating paths:", pathsToRevalidate);
 
     // Revalidate each path
     await Promise.all(pathsToRevalidate.map((path) => res.revalidate(path)));
