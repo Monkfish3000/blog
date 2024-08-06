@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import PostCard from './PostCard';
+import PostCard from "./PostCard";
 
 interface Post {
   id: number;
@@ -18,6 +18,8 @@ interface FeedProps {
 }
 
 export const Feed: React.FC<FeedProps> = ({ posts }) => {
+  console.log("Feed -> ", posts.length);
+
   return (
     <div className="flex flex-wrap -mx-2 mt-8">
       {posts.map(({ id, title, coverImage, excerpt, date, slug }) => (
