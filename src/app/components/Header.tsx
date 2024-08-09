@@ -1,15 +1,15 @@
-'use client';
+"use client";
+import Head from "next/head";
+import { useTheme } from "next-themes";
 
-import { useTheme } from 'next-themes';
+import Link from "next/link";
+import Image from "next/image";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import ThemeBtn from "./ThemeBtn";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import ThemeBtn from './ThemeBtn';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
-import { useState } from 'react';
-
-import Sidebar from './Sidebar';
+import Sidebar from "./Sidebar";
 
 type title = {
   title: string;
@@ -21,16 +21,20 @@ const Header = ({ title }: title) => {
 
   return (
     <>
+      <Head>
+        <link rel="preload" href="/assets/images/logoWhite.png" as="image" />
+        <link rel="preload" href="/assets/images/logoBlack.png" as="image" />
+      </Head>
       <header className="w-full flex items-center justify-between z-10">
         <nav className="space-x-7 flex items-center">
           <Image
             src={`/assets/images/logo${
-              resolvedTheme === 'dark' ? 'White' : 'Black'
+              resolvedTheme === "dark" ? "White" : "Black"
             }.png`}
             alt="logo"
             width={120}
             height={120}
-            className={`object-contain ${title ? 'cursor-pointer' : ''}`}
+            className={`object-contain ${title ? "cursor-pointer" : ""}`}
             onClick={() => title && setSideBarIsOpen(!sideBarIsOpen)}
           />
           {!title ? (
@@ -77,9 +81,9 @@ const Header = ({ title }: title) => {
           {
             <MagnifyingGlassIcon
               className={`h-10 w-10 hover:text-customBlue ${
-                resolvedTheme === 'dark' ? 'text-white' : 'text-black'
+                resolvedTheme === "dark" ? "text-white" : "text-black"
               }`}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             />
           }
           {/* <Image
