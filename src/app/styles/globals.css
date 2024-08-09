@@ -26,4 +26,8 @@ article p {
   @apply font-bold text-2xl cursor-pointer rounded-md p-3 hover:bg-gray-100;
 }
 
+.logo {
+  filter: invert(1);
+}
+
 /* hover font color #5494D4 */

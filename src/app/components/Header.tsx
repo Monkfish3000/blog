@@ -22,19 +22,18 @@ const Header = ({ title }: title) => {
   return (
     <>
       <Head>
-        <link rel="preload" href="/assets/images/logoWhite.png" as="image" />
-        <link rel="preload" href="/assets/images/logoBlack.png" as="image" />
+        <link rel="preload" href="/assets/images/logoBlack.svg" as="image" />
       </Head>
       <header className="w-full flex items-center justify-between z-10">
         <nav className="space-x-7 flex items-center">
           <Image
-            src={`/assets/images/logo${
-              resolvedTheme === "dark" ? "White" : "Black"
-            }.png`}
+            src={`/assets/images/logoBlack.svg`}
             alt="logo"
             width={120}
             height={120}
-            className={`object-contain ${title ? "cursor-pointer" : ""}`}
+            className={`object-contain ${
+              resolvedTheme === "dark" ? "logo" : ""
+            } ${title ? "cursor-pointer" : ""}`}
             onClick={() => title && setSideBarIsOpen(!sideBarIsOpen)}
           />
           {!title ? (
