@@ -37,11 +37,12 @@ const Header = ({ title }: title) => {
             onClick={() => title && setSideBarIsOpen(!sideBarIsOpen)}
           />
           {!title ? (
+            // TODO - add md:block to Articles and Collections when ready
             <>
-              <Link className="headerLink" href="/">
+              <Link className="headerLink hidden" href="/">
                 Articles
               </Link>
-              <Link className="headerLink" href="/">
+              <Link className="headerLink hidden" href="/">
                 Collections
               </Link>
               <Link className="headerLink" href="/about">
