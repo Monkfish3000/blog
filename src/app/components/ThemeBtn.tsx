@@ -3,7 +3,11 @@
 import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 
-const ThemeBtn = ({ mobile }) => {
+type MobileProps = {
+  mobile: boolean;
+};
+
+const ThemeBtn = ({ mobile }: MobileProps) => {
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
