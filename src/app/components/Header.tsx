@@ -53,7 +53,7 @@ const Header = ({ title }: title) => {
             </>
           ) : (
             <>
-              <h1 className="text-2xl font-extrabold">{title}</h1>
+              <h1 className="text-base sm:text-2xl font-extrabold">{title}</h1>
             </>
           )}
         </nav>
@@ -134,7 +134,7 @@ const Header = ({ title }: title) => {
         </nav>
       </header>
       {sideBarIsOpen && (
-        <nav className="fixed top-0 left-0 h-full w-1/3 bg-white z-50 border-r border-gray-300 dark:bg-customBlack">
+        <nav className="fixed top-0 left-0 h-full sm:w-1/3 w-2/3 bg-white z-50 border-r border-gray-300 dark:bg-customBlack">
           {title ? <Sidebar toggleSidebar={setSideBarIsOpen} /> : null}
         </nav>
       )}
