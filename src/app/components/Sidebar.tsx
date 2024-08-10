@@ -40,7 +40,7 @@ const Sidebar = ({ toggleSidebar }: ToggleSidebarProps) => {
         <Link className="sidebarLink" href="/">
           Collections
         </Link>
-        <Link className="sidebarLink" href="/">
+        <Link className="sidebarLink" href="/about">
           About
         </Link>
       </nav>
