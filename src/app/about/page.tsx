@@ -1,13 +1,14 @@
-import { Header } from '../components';
-import Footer from '../components/Footer';
+import Link from "next/link";
+import { Header } from "../components";
+import Footer from "../components/Footer";
 
 const About = () => {
   return (
     <>
-      <Header title={'About Me'} />
-      <section className="m-auto mt-16 w-2/5">
+      <Header title={"About Me"} />
+      <section className="m-auto mt-16 w-3/4 sm:w-2/5">
         <h1 className="font-bold text-3xl mb-6">About MonkFish</h1>
-        <p className="mb-40">
+        <p className="mb-20">
           Welcome to my digital fishpond! I'm Michael, also known as MonkFish.
           Born with a knack for code and a heart for innovation, I've carved my
           path as a Software Engineer, where the vibrant city of Barcelona
@@ -31,6 +32,15 @@ const About = () => {
           together, navigating the exciting world of technology, one post at a
           time.
         </p>
+        <div className="flex justify-center mb-5">
+          <Link
+            className="font-extrabold cursor-pointer"
+            target="_blank"
+            href="https://michaelsutcliffe.dev"
+          >
+            Learn more!
+          </Link>
+        </div>
       </section>
       <Footer />
     </>
