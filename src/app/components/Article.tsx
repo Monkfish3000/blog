@@ -28,7 +28,7 @@ const Article: React.FC<ArticleProps> = ({
 
   return (
     <article className="m-8 grid grid-cols-4 w-5/6">
-      <section className="col-span-1 mt-6 p-2 hidden sm:grid">
+      <section className="col-span-1 mt-6 p-2 hidden sm:flex">
         <div className="sticky top-10">
           <h1 className="text-2xl font-bold mb-2">{title}</h1>
           <p className="text-gray-600">{formatDate(date)}</p>

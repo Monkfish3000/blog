@@ -1,6 +1,7 @@
 "use client";
 import Head from "next/head";
 import { useTheme } from "next-themes";
+import { usePathname, useRouter } from "next/navigation";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -17,8 +18,10 @@ type title = {
 
 const Header = ({ title }: title) => {
   const { resolvedTheme } = useTheme();
-  const [sideBarIsOpen, setSideBarIsOpen] = useState<boolean>(false);
+  const pathName = usePathname();
+  const router = useRouter();
 
+  const [sideBarIsOpen, setSideBarIsOpen] = useState<boolean>(false);
   const [mobMenuOpen, setMobMenuOpen] = useState<boolean>();
 
   return (
@@ -35,19 +38,23 @@ const Header = ({ title }: title) => {
             height={120}
             className={`object-contain ${
               resolvedTheme === "dark" ? "logo" : ""
-            } ${title ? "cursor-pointer" : ""}`}
-            onClick={() => title && setSideBarIsOpen(!sideBarIsOpen)}
+            } ${title || pathName === "/coming-soon" ? "cursor-pointer" : ""}`}
+            onClick={() => {
+              title && setSideBarIsOpen(!sideBarIsOpen);
+              if (pathName === "/coming-soon") {
+                router.push("/");
+              }
+            }}
           />
           {!title ? (
-            // TODO - add md:block to Articles and Collections when ready
             <>
-              <Link className="headerLink hidden" href="/">
+              <Link className="headerLink hidden md:block" href="/coming-soon">
                 Articles
               </Link>
-              <Link className="headerLink hidden" href="/">
+              <Link className="headerLink hidden md:block" href="/coming-soon">
                 Collections
               </Link>
-              <Link className="headerLink" href="/about">
+              <Link className="headerLink hidden md:block" href="/about">
                 About
               </Link>
             </>
@@ -101,24 +108,36 @@ const Header = ({ title }: title) => {
                   resolvedTheme === "dark" ? "bg-gray-950" : "bg-gray-50"
                 }  items-center justify-center shadow-2xl absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
               >
-                <ul className="list-none flex justify-end flex-col gap-4">
+                <ul className="list-none flex items-center flex-col gap-4">
                   <li>
                     <ThemeBtn mobile={true} />
                   </li>
-                  <Link
-                    className={`font-light text-lg hover:text-customBlue sm:flex`}
-                    href="https://github.com/Monkfish3000"
-                    target="blank"
-                  >
-                    <FaGithub size={40} />
-                  </Link>
-                  <Link
-                    className="font-light text-lg hover:text-customBlue sm:flex"
-                    href="https://www.linkedin.com/in/michael-sut/"
-                    target="blank"
-                  >
-                    <FaLinkedin size={40} />
-                  </Link>
+                  <li>
+                    <Link
+                      className={`font-light text-lg hover:text-customBlue sm:flex`}
+                      href="https://github.com/Monkfish3000"
+                      target="blank"
+                    >
+                      <FaGithub size={40} />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="font-light text-lg hover:text-customBlue sm:flex"
+                      href="https://www.linkedin.com/in/michael-sut/"
+                      target="blank"
+                    >
+                      <FaLinkedin size={40} />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="font-bold text-lg hover:text-customBlue sm:flex"
+                      href="/about"
+                    >
+                      About Me
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
