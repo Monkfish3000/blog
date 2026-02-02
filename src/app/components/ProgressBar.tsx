@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 
 const ProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [readingArticle, setReadingArticle] = useState(false);
 
   const progressBarRef = useRef(null);
   useEffect(() => {
@@ -17,10 +16,33 @@ const ProgressBar = () => {
         const windowHeight = window.innerHeight;
         const documentHeight = document.body.clientHeight;
         const scrollTop = window.scrollY;
-        const fullScrollHeight = documentHeight - windowHeight;
 
-        const progress = (scrollTop / fullScrollHeight) * 100;
-        setScrollProgress(Math.floor(progress));
+        const articleContainer = document.getElementById('article-content');
+        
+        let startPoint = 0;
+        if (articleContainer) {
+            startPoint = articleContainer.offsetTop;
+        }
+
+        // If the article hasn't started yet (e.g. still in hero), progress is 0
+        if (scrollTop < startPoint) {
+            setScrollProgress(0);
+            return;
+        }
+
+        // Calculate available scroll distance from the start of the article
+        const totalScrollDistance = documentHeight - windowHeight - startPoint;
+
+        // If there is no distance to scroll (content fits in screen), progress is 100
+        if (totalScrollDistance <= 0) {
+             setScrollProgress(100);
+             return;
+        }
+
+        const currentScrollWithinArticle = scrollTop - startPoint;
+        const progress = (currentScrollWithinArticle / totalScrollDistance) * 100;
+        
+        setScrollProgress(Math.floor(Math.max(0, Math.min(100, progress))));
       });
     };
 
@@ -31,15 +53,6 @@ const ProgressBar = () => {
       cancelAnimationFrame(rafId);
     };
   }, []);
-
-  useEffect(() => {
-    if (scrollProgress > 30) {
-      setReadingArticle(true);
-    }
-    if (scrollProgress < 29) setReadingArticle(false);
-  }, [scrollProgress]);
-
-  if (!readingArticle) return <></>;
 
   return (
     <div className="fixed top-0 left-0 w-full">
