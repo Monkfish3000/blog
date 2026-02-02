@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 
 const ProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [readingArticle, setReadingArticle] = useState(false);
 
   const progressBarRef = useRef(null);
   useEffect(() => {
@@ -31,15 +30,6 @@ const ProgressBar = () => {
       cancelAnimationFrame(rafId);
     };
   }, []);
-
-  useEffect(() => {
-    if (scrollProgress > 30) {
-      setReadingArticle(true);
-    }
-    if (scrollProgress < 29) setReadingArticle(false);
-  }, [scrollProgress]);
-
-  if (!readingArticle) return <></>;
 
   return (
     <div className="fixed top-0 left-0 w-full">
