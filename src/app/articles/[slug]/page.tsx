@@ -50,15 +50,17 @@ export default async function Post({ params }: PostParams) {
         </div>
       </header>
       <ProgressBar />
-      <Suspense fallback={<div className="skeleton-screen">Loading...</div>}>
-        <Article
-          id={id}
-          date={date}
-          content={content}
-          title={title}
-          author={author}
-        />
-      </Suspense>
+      <div id="article-content">
+        <Suspense fallback={<div className="skeleton-screen">Loading...</div>}>
+          <Article
+            id={id}
+            date={date}
+            content={content}
+            title={title}
+            author={author}
+          />
+        </Suspense>
+      </div>
     </>
   );
 }
