@@ -9,7 +9,7 @@ export const getPosts = async () => {
       },
       body: JSON.stringify({
         query: `{
-            posts {
+            posts(orderBy: date_DESC) {
               id
               date
               title
@@ -30,6 +30,7 @@ export const getPosts = async () => {
             }
           }`,
       }),
+      next: { tags: ['posts'] }
     }
   );
 
