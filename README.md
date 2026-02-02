@@ -1,34 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Fish Pond (mf-blog)
 
-## Getting Started
+A personal blog built with Next.js (App Router), TypeScript, and Tailwind CSS. Content is managed via Hygraph (formerly GraphCMS).
 
-First, run the development server:
+## 🛠 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- **Framework:** [Next.js 13+](https://nextjs.org/) (App Router)
+- **Language:** TypeScript
+- **Styling:**
+  - Tailwind CSS
+  - Next-Themes (Dark/Light mode)
+  - MUI Joy UI (Component library)
+- **CMS:** [Hygraph](https://hygraph.com/) (GraphQL)
+- **Deployment:** Vercel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Monkfish3000/blog.git
+    cd blog
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3.  **Configure Environment Variables:**
+    Create a `.env` file in the root directory (this file is ignored by git). You will need the following keys:
+    ```env
+    HYGRAPH_TOKEN=your_permanent_auth_token_with_mutation_permissions
+    REVALIDATE_SECRET=your_secret_token_for_revalidation
+    ```
+    *Note: The Hygraph Endpoint is currently hardcoded in `src/app/api/fetchData.ts` and `scripts/add-post.js`.*
 
-To learn more about Next.js, take a look at the following resources:
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Managing Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Adding Posts (CLI)
+You can add posts programmatically using the included script.
+1. Ensure your `.env` has a valid `HYGRAPH_TOKEN` with mutation permissions.
+2. Edit the content in `scripts/add-post.js`.
+3. Run:
+   ```bash
+   node scripts/add-post.js
+   ```
 
-## Deploy on Vercel
+### Revalidation
+The blog uses On-Demand Revalidation (ISR).
+- **Webhook Endpoint:** `/api/revalidate?secret=<REVALIDATE_SECRET>`
+- Configured in Hygraph to trigger on "Publish" events.
+- To revalidate manually:
+  ```bash
+  curl -X POST "https://www.fromthefishpond.dev/api/revalidate?secret=YOUR_SECRET"
+  ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📂 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `src/app`: Main application code (App Router).
+  - `api/`: Data fetching and revalidation logic.
+  - `articles/[slug]`: Dynamic blog post pages.
+  - `components/`: Reusable UI components.
+  - `styles/`: Global styles and theme config.
+- `public/`: Static assets (images, icons).
+- `scripts/`: Utility scripts for content management.
+
+## 🤝 Contributing
+
+1.  Fork the repo.
+2.  Create a feature branch (`git checkout -b feature/amazing-feature`).
+3.  Commit your changes.
+4.  Push to the branch.
+5.  Open a Pull Request.
+
+## 📄 License
+
+This project is open source.
